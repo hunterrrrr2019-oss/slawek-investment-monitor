@@ -1,7 +1,7 @@
 name: Slawek Investment Monitor
 
 on:
-  workflow_dispatch:
+  push:
 
 jobs:
   monitor:
@@ -11,10 +11,10 @@ jobs:
       - name: Pobierz kod
         uses: actions/checkout@v4
 
-      - name: Uruchom agenta
+      - name: Ustaw Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Start
+      - name: Uruchom monitor
         run: python monitor.py
